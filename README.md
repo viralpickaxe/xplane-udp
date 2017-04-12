@@ -1,4 +1,4 @@
-# XPlane UDP
+# XPlane UDP [![Build Status](https://travis-ci.org/viralpickaxe/xplane-udp.svg?branch=master)](https://travis-ci.org/viralpickaxe/xplane-udp)
 XPlane UDP Client for Node.js
 
 ## Requirements
