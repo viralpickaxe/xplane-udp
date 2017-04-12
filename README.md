@@ -15,4 +15,4 @@ XPlane UDP Client for Node.js
 1. Clone the Repo onto your local machine
 2. Install the dependancies: `npm i`
 3. Build the code (ts->js): `npm run typescript`
-4. Run the tests: `npm run tests`
+4. Run the tests: `npm run test`

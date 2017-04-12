@@ -1,0 +1,18 @@
+language: node_js
+
+node_js:
+    - "6.9"
+
+install:
+    - "npm i"
+
+before_script:
+    # Build the typescript files
+    - "npm run typescript"
+
+script:
+    - "./node_modules/.bin/mocha tests/**/*.test.js"
+
+cache:
+  directories:
+    - node_modules

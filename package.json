@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "XPlane UDP Client for Node.js",
   "scripts": {
-    "tests": "./node_modules/.bin/mocha tests/**/*.test.js",
+    "test": "./node_modules/.bin/mocha tests/**/*.test.js",
     "typescript": "tsc -p .",
     "typescript-watch": "tsc -p . -w"
   },
