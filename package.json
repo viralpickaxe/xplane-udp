@@ -1,0 +1,27 @@
+{
+  "name": "xplane-udp",
+  "version": "0.0.1",
+  "description": "XPlane UDP Client for Node.js",
+  "scripts": {
+    "tests": "./node_modules/.bin/mocha tests/**/*.test.js",
+    "typescript": "tsc -p .",
+    "typescript-watch": "tsc -p . -w"
+  },
+  "directories": {
+		"test": "tests"
+  },
+  "repository": {
+		"type": "git",
+		"url": "git+https://viralpickaxe@github.com/viralpickaxe/xplane-udp.git"
+  },
+  "author": "Jamie Davies <jamie@iamjamiedavies.com> (iamjamiedavies.com)",
+  "devDependencies": {
+		"chai": "^3.5.0",
+		"mocha": "^3.1.2",
+		"typescript": "^2.2.1"
+  },
+  "dependencies": {
+		"@types/node": "^7.0.12",
+		"assert": "^1.4.1"
+  }
+}
