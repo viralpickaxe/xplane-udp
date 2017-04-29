@@ -1,6 +1,6 @@
 {
   "name": "xplane-udp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "XPlane UDP Client for Node.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha tests/**/*.test.js",
