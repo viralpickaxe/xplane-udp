@@ -1,18 +1,20 @@
 language: node_js
-
 node_js:
-    - "6.9"
-
+- '6.9'
 install:
-    - "npm i"
-
+- npm i
 before_script:
-    # Build the typescript files
-    - "npm run typescript"
-
+- npm run typescript
 script:
-    - "./node_modules/.bin/mocha tests/**/*.test.js"
-
+- ./node_modules/.bin/mocha tests/**/*.test.js
 cache:
   directories:
-    - node_modules
+  - node_modules
+deploy:
+  provider: npm
+  email: jamie@iamjamiedavies.com
+  api_key:
+    secure: NAUjqN5yKZNZCKLVF8eFjucFnajt+Smr0wFyKV+cOHDPeEwtd7sifYOdqPgqgDWDggsdZxB5DXv0798RvQS1Njx060I8gQA6A+xPIzSZ8qHJqhgicgz8D8g9yqOhIkG4rySATm9mseN1jSXHyeCzUUJSYlTdzADlFUuHu1UdWo52qz83sbDUda2cpnOtpVavz8dIu/c68s+dsliw9QssO26BkLhjslzwahHpMZw6Z4RVPG+MZd3hnFk8GbwscwsGvSa7ABGICC61HhVh2T45sGyVXAXLGRO70VQusPPHJ2s0dtL8fHDZ+Sh7IbMUhfx4E9MMm3yBHReAI2xYsb+KgbslMx8FcMR8NNRuq6QK2wR7lRvia8EteQlAsj4VeBpqKUyKssy5pmRzWXR2v4J+K7AhFwOyrgyAWhQhq8UpDbizzaVED2lt9R6ChCCQRULwoKaljDmvnxyuqKoHVpHLLM1pVof6c9X04al/ZkENESVFG2rSzL5qtChrlhnkpeEocIxaJzh64DBuQL09ikaelwuBEkQcFpg37GJ+P5Pw/h0gZ2c7KYhzUGmH6SyvtkoyvrGmfL62poF4wIfrDbSaeFipeItRm+/aAon4pdd852IFKTatNDLUwUCc71vwY4UQRez3CBffs99RQk0H8qewy8TSQLzMMd00zEZaqqSyXfg=
+  on:
+    tags: true
+    repo: viralpickaxe/xplane-udp

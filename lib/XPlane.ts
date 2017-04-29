@@ -1,6 +1,7 @@
 import { createSocket, Socket } from "dgram"
 import { endianness } from "os"
 import { EventEmitter } from "events"
+import DataTypes from "./DataTypes"
 
 /**
  * An XPlane UDP Client
@@ -66,15 +67,69 @@ export class XPlane extends EventEmitter {
 	private processUDP(rawBuffer: Buffer): void {
 
 		let header = rawBuffer.slice(0, 5),
-			data = rawBuffer.slice(5)
-		
-		this.emit('updated', {
+			data = rawBuffer.slice(5),
+			datasets = Math.floor(data.length / 36)
 
-			lat: data[`readFloat${endianness()}`](4),
-			lng: data[`readFloat${endianness()}`](8),
-			alt: data[`readFloat${endianness()}`](12)
+		var output = {}
 
-		})
+		for ( var i = 0; i < datasets*36; i+=36 ) {
+			
+			let result = this.processType(data.slice(i,i+36))
+			if ( result ) output[result.name] = result.values
+
+		}
+
+		this.emit('updated', output)
+
+	}
+
+	/**
+	 * Process a single dataset out of the entire UDP sentence that was set
+	 * 
+	 * @private
+	 * @param {Buffer} sentence The buffer for the dataset 
+	 * @returns 
+	 * 
+	 * @memberOf XPlane
+	 */
+	private processType(sentence: Buffer) {
+
+		let type_id = sentence[`readInt8`](0),
+			type = DataTypes[type_id]
+
+		var values = {}
+
+		if ( type ) {
+
+			var offset = 4
+
+			for ( var i = 0; i < type.data.length; i++ ) {
+
+				var datapoint = type.data[i];
+
+				if ( datapoint.type !== 'pad' ) {
+
+					values[datapoint.name] = sentence[`readFloat${endianness()}`](offset);
+					offset += 4
+
+				} else {
+
+					offset += datapoint.length;
+
+				}
+
+			}
+
+			return {
+				name: type.name,
+				values: values
+			}
+			
+		} else {
+
+			return null
+
+		}
 
 	}
 
