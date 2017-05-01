@@ -1,9 +1,10 @@
 {
   "name": "xplane-udp",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "XPlane UDP Client for Node.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha tests/**/*.test.js",
+    "install": "tsc -p .",
     "typescript": "tsc -p .",
     "typescript-watch": "tsc -p . -w"
   },
