@@ -30,6 +30,15 @@ export class XPlane extends EventEmitter {
 	private socket?: Socket
 
 	/**
+	 * The last update state of the data recieved
+	 * 
+	 * @public
+	 * @type {{}}
+	 * @memberOf XPlane
+	 */
+	public data?: {}
+
+	/**
 	 * Creates an instance of XPlane
 	 * @param {number} port The port create the UDP socket on
 	 * 
@@ -79,7 +88,8 @@ export class XPlane extends EventEmitter {
 
 		}
 
-		this.emit('updated', output)
+		this.data = output
+		this.emit('updated', this.data)
 
 	}
 
