@@ -19,7 +19,7 @@ client.start()
 
 // Subscribe to the updated event
 // This will fire at the rate at which you send UDP updates (set in-game)
-client.on("updated",(data) => {
+client.on("updated", (data) => {
     
     // Do something with the data
     console.log(data)
@@ -37,7 +37,7 @@ callMeMaybe(() => {
 
 ```
 
-## Output Data Format
+## Output Data Format (XPlaneUpdate interface)
 
 Below is the structure of the data object returned in the `updated` event, or otherwise accesible directly from `client.data.<group>.<value>`.
 

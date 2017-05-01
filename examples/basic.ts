@@ -8,7 +8,7 @@ client.start()
 
 // Subscribe to the updated event
 // This will fire at the rate at which you send UDP updates (set in-game)
-client.on("updated",(data) => {
+client.on("updated", (data) => {
     
     // Do something with the data
     console.log(data)

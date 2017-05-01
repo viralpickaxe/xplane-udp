@@ -3,6 +3,8 @@ import { endianness } from "os"
 import { EventEmitter } from "events"
 import DataTypes from "./DataTypes"
 
+import { XPlaneUpdate } from "./XPlaneUpdate"
+
 /**
  * An XPlane UDP Client
  * 
@@ -33,10 +35,10 @@ export class XPlaneClient extends EventEmitter {
 	 * The last update state of the data recieved
 	 * 
 	 * @public
-	 * @type {{}}
+	 * @type {XPlaneUpdate}
 	 * @memberOf XPlaneClient
 	 */
-	public data?: {}
+	public data?: XPlaneUpdate
 
 	/**
 	 * Creates an instance of XPlaneClient
@@ -79,7 +81,7 @@ export class XPlaneClient extends EventEmitter {
 			data = rawBuffer.slice(5),
 			datasets = Math.floor(data.length / 36)
 
-		var output = {}
+		var output: XPlaneUpdate = {}
 
 		for ( var i = 0; i < datasets*36; i+=36 ) {
 			
@@ -89,7 +91,7 @@ export class XPlaneClient extends EventEmitter {
 		}
 
 		this.data = output
-		this.emit('updated', this.data)
+		this.emit('updated', this.data as XPlaneUpdate)
 
 	}
 
