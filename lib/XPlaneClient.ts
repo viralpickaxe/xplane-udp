@@ -7,16 +7,16 @@ import DataTypes from "./DataTypes"
  * An XPlane UDP Client
  * 
  * @export
- * @class XPlane
+ * @class XPlaneClient
  */
-export class XPlane extends EventEmitter {
+export class XPlaneClient extends EventEmitter {
 
 	/**
 	 * The port to create the UDP socket on
 	 * 
 	 * @public
 	 * @type {number}
-	 * @memberOf XPlane
+	 * @memberOf XPlaneClient
 	 */
 	public port: number
 
@@ -25,7 +25,7 @@ export class XPlane extends EventEmitter {
 	 * 
 	 * @private
 	 * @type {Socket}
-	 * @memberOf XPlane
+	 * @memberOf XPlaneClient
 	 */
 	private socket?: Socket
 
@@ -34,15 +34,15 @@ export class XPlane extends EventEmitter {
 	 * 
 	 * @public
 	 * @type {{}}
-	 * @memberOf XPlane
+	 * @memberOf XPlaneClient
 	 */
 	public data?: {}
 
 	/**
-	 * Creates an instance of XPlane
+	 * Creates an instance of XPlaneClient
 	 * @param {number} port The port create the UDP socket on
 	 * 
-	 * @memberOf XPlane
+	 * @memberOf XPlaneClient
 	 */
 	constructor(port: number) {
 
@@ -56,7 +56,7 @@ export class XPlane extends EventEmitter {
 	 * Start listening on the UDP socket
 	 * 
 	 * @public
-	 * @memberOf XPlane
+	 * @memberOf XPlaneClient
 	 */
 	public start(): void {
 
@@ -71,7 +71,7 @@ export class XPlane extends EventEmitter {
 	 * @param {Buffer} rawBuffer A buffer of data from the socket
 	 * 
 	 * @private
-	 * @memberOf XPlane
+	 * @memberOf XPlaneClient
 	 */
 	private processUDP(rawBuffer: Buffer): void {
 
@@ -100,7 +100,7 @@ export class XPlane extends EventEmitter {
 	 * @param {Buffer} sentence The buffer for the dataset 
 	 * @returns 
 	 * 
-	 * @memberOf XPlane
+	 * @memberOf XPlaneClient
 	 */
 	private processType(sentence: Buffer) {
 

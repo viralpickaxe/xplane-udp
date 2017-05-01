@@ -1,3 +1,7 @@
-import * as lib from "./lib/XPlane"
+/// <reference path="index.d.ts" />
 
-export default lib
+import { XPlaneClient } from "./lib/XPlaneClient"
+
+module.exports = {
+	XPlaneClient
+}

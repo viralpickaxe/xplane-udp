@@ -6,13 +6,13 @@ XPlane UDP Client for Node.js
 - Xplane 11
 
 ## Usage
-```typescript
+```javascript
 // Import XPlane class from the package
-import { XPlane } from "xplane-udp"
+import { XPlaneClient } from "xplane-udp"
 
 
 // Create a client on a specific port (this is a value you define in your xplane game settings)
-const client = new XPlane(49000)
+const client = new XPlaneClient(49000)
 
 // Start the UDP listener
 client.start()
@@ -148,11 +148,11 @@ Below is the structure of the data object returned in the `updated` event, or ot
   - `axial` - [lb]
   - `side` - [lb]
 
-## Running the code
+## Contibute to the code
 1. Clone the Repo onto your local machine
 2. Install the dependancies: `npm i`
 3. Build the code (ts->js): `npm run typescript` (or `typescript-watch` to watch)
-4. Run the code: `node lib/Main.js`
+4. Contribute!
 
 ## Running the tests
 1. Clone the Repo onto your local machine
