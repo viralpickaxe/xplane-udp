@@ -1,6 +1,6 @@
 {
   "name": "xplane-udp",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "XPlane UDP Client for Node.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha tests/**/*.test.js",
@@ -16,12 +16,13 @@
   },
   "author": "Jamie Davies <jamie@iamjamiedavies.com> (iamjamiedavies.com)",
   "devDependencies": {
+    "assert": "^1.4.1",
 		"chai": "^3.5.0",
 		"mocha": "^3.1.2",
 		"typescript": "^2.2.1"
   },
   "dependencies": {
-		"@types/node": "^7.0.12",
-		"assert": "^1.4.1"
-  }
+		"@types/node": "^7.0.12"
+  },
+  "license": "MIT"
 }
